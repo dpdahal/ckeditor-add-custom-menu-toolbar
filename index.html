@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="contents.css">
+</head>
+<body>
+
+<textarea id="container"></textarea>
+
+
+<script src="ckeditor.js"></script>
+<script>
+    editor = CKEDITOR.replace('container')
+
+    // add dropdown button to toolbar with multiple dropdown items
+    editor.ui.addRichCombo('SuperButton', {
+        label: "Click me",
+        title: "Click me",
+        toolbar: 'insert',
+        icon: 'https://avatars1.githubusercontent.com/u/5500999?v=2&s=16',
+        panel: {
+            multiSelect: false,
+
+        },
+        init: function () {
+            this.add("item1", "Item 1", "Item 1");
+            this.add("item2", "Item 2", "Item 2");
+
+        },
+        onClick: function (value) {
+            editor.insertHtml(value);
+        }
+    });
+
+
+</script>
+</body>
+</html>
